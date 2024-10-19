@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Group Identification - Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://www.techexplorist.com/wp-content/uploads/2022/09/blood-group-test.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: red;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            max-width: 400px;
+            min-width: 300px;
+            margin-left: auto;
+            margin-right:50px 
+        }
+
+        h1 {
+            text-align: center;
+            color: red;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: red;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Media Query for larger screens */
+        @media (min-width: 601px) {
+            body {
+                justify-content: flex-start; /* Moves the form to the left on larger screens */
+            }
+        }
+
+        /* Media Query for small devices */
+        @media (max-width: 600px) {
+            body {
+                justify-content: center; /* Centers the form on mobile screens
+                align-items:center
+                {% comment %} margin-right:25px {% endcomment %}
+            }
+
+            .container {
+                width: 80%;
+                padding: 20px;
+               
+            }
+
+            input[type="text"],
+            input[type="password"],
+            input[type="submit"] {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            h1, h2 {
+                font-size: 18px;
+                color: red;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Welcome to Blood Group Identification</h1>
+    <h2>Login</h2>
+    
+    <form action="#" method="post">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Login">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
