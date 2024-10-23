@@ -1,143 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blood Group Identification - Sign Up</title>
+    <title>Register</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+            background-image: url('https://img.freepik.com/premium-photo/close-up-blood-cells-with-red-blue-blood-cells-background_154739-1006.jpg?w=740'); 
+            background-size: cover;
+            background-position: center;
             display: flex;
-            justify-content: center;
+            justify-content: flex-start; 
             align-items: center;
             height: 100vh;
-            background-image: url('https://www.pathologytestsexplained.org.au/content/summaryimages/Blood%20group%20banner.jpg');
-            background-size: cover; 
-            background-position: center;
-            background-repeat: no-repeat; 
-            color: red;
+            margin: 0;
+            padding: 20px; 
+            box-sizing: border-box;
+            overflow: hidden;
         }
 
-        .container {
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 50%;
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             max-width: 400px;
-            min-width: 300px;
-            margin-left: auto;
-            margin-right:50px 
+            width: 100%;
+            margin-left: 40px; /* Move the form to the left */
         }
 
         h1 {
             text-align: center;
-            color: red;
+            font-size: 24px;
             margin-bottom: 20px;
         }
 
-        h2 {
-            color: red;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
+        form {
+            display: flex;
+            flex-direction: column;
         }
 
         label {
-            display: block;
-            margin-bottom: 5px;
-            color: red;
             font-weight: bold;
+            margin-bottom: 5px;
         }
 
-        input[type="text"],
-        input[type="password"] {
-            width: 100%;
+        input {
             padding: 10px;
             border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
-        input[type="submit"] {
-            width: 100%;
+        button {
             padding: 10px;
-            background-color: red;
+            background-color: #4CAF50;
             color: white;
             border: none;
-            border-radius: 5px;
-            font-size: 16px;
+            border-radius: 4px;
             cursor: pointer;
+            font-size: 16px;
         }
 
-        @media (min-width: 601px) {
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        /* Media query for responsiveness on smaller screens */
+        @media screen and (max-width: 768px) {
             body {
-                justify-content: flex-start; /* Aligns form to the left on larger screens */
+                justify-content: center; /* Center the form for smaller screens */
             }
 
-            .container {
-                margin-right: 50px; /* Moves the container slightly to the right */
+            .form-container {
+                max-width: 90%;
+                margin-left: 0; /* Reset left margin on smaller screens */
             }
         }
 
-        @media (max-width: 600px) {
-            .container {
-                width: 80%;
-                padding: 20px;
-                margin-right:25px
-            }
-
-            input[type="text"],
-            input[type="password"],
-            input[type="submit"] {
-                font-size: 14px;
-                padding: 8px;
-            }
-
-            h1, h2 {
-                font-size: 18px;
-                color: red;
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 20px; /* Smaller font size on very small screens */
             }
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <h1>Welcome to Blood Group Identification</h1>
-    <h2>Sign Up</h2>
-    
-    <form action="#" method="post">
-        <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-        </div>
-
-        <div class="form-group">
-            <label for="fullname">Full Name:</label>
-            <input type="text" id="fullname" name="fullname" required>
-        </div>
-
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-
-        <div class="form-group">
-            <label for="confirm_password">Confirm Password:</label>
-            <input type="password" id="confirm_password" name="confirm_password" required>
-        </div>
-
-        <div class="form-group">
-            <input type="submit" value="Sign Up">
-        </div>
-    </form>
-</div>
+    <div class="form-container">
+        <h1>Register </h1>
+        <form method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="input-group">
+                    {{ field.label_tag }}<br> <!-- Label -->
+                    {{ field }} <!-- Input field -->
+                    {% for error in field.errors %}
+                        <p class="error">{{ error }}</p> <!-- Error message -->
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            <button type="submit">Register</button>
+        </form>
+    </div>
 
 </body>
+
 </html>

@@ -1,136 +1,106 @@
-<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blood Group Identification - Login</title>
+    <title>Login</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-image: url('https://www.techexplorist.com/wp-content/uploads/2022/09/blood-group-test.jpg');
+            background-image: url('https://motionarray.imgix.net/preview-97259-SsNmfaevYJ-high_0005.jpg'); /* Set your image path here */
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
-            color: red;
+            display: flex;
+            justify-content: flex-start; /* Align form to the left */
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px; /* Add some padding to prevent content from touching the edge */
+            overflow:hidden
+            
         }
-
-        .container {
+        
+        div {
             background-color: #fff;
-            padding: 40px;
-            border-radius: 10px;
+            padding: 20px;
+            border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 50%;
-            max-width: 400px;
-            min-width: 300px;
-            margin-left: auto;
-            margin-right:50px 
-        }
-
-        h1 {
+            width: 300px;
             text-align: center;
-            color: red;
-            margin-bottom: 20px;
+            margin-left: 40px; /* Add margin to push form away from the left edge */
         }
 
         h2 {
-            color: red;
             margin-bottom: 20px;
-            text-align: center;
+            font-size: 24px;
+            color: #333;
         }
 
-        .form-group {
-            margin-bottom: 15px;
+        form p {
+            margin: 10px 0;
+            text-align: left;
         }
 
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        input[type="text"],
-        input[type="password"] {
+        input {
             width: 100%;
             padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
             border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
+            border-radius: 4px;
         }
 
-        input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            background-color: red;
+        button {
+            background-color: #4CAF50;
             color: white;
+            padding: 10px 20px;
             border: none;
-            border-radius: 5px;
-            font-size: 16px;
+            border-radius: 4px;
             cursor: pointer;
+            width: 100%;
         }
 
-        /* Media Query for larger screens */
-        @media (min-width: 601px) {
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .msg {
+            color: red;
+            margin-bottom: 10px;
+        }
+
+        /* Media query for responsiveness on smaller screens */
+        @media screen and (max-width: 768px) {
             body {
-                justify-content: flex-start; /* Moves the form to the left on larger screens */
+                justify-content: center; /* Center the form on smaller screens */
+            }
+
+            div {
+                width: 90%; /* Make the form width responsive */
+                margin-left: 0; /* Reset left margin for smaller screens */
             }
         }
 
-        /* Media Query for small devices */
-        @media (max-width: 600px) {
-            body {
-                justify-content: center; /* Centers the form on mobile screens
-                align-items:center
-                {% comment %} margin-right:25px {% endcomment %}
-            }
-
-            .container {
-                width: 80%;
-                padding: 20px;
-               
-            }
-
-            input[type="text"],
-            input[type="password"],
-            input[type="submit"] {
-                font-size: 14px;
-                padding: 8px;
-            }
-
-            h1, h2 {
-                font-size: 18px;
-                color: red;
+        @media screen and (max-width: 480px) {
+            h2 {
+                font-size: 20px; /* Smaller font size on very small screens */
             }
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <h1>Welcome to Blood Group Identification</h1>
-    <h2>Login</h2>
-    
-    <form action="#" method="post">
-        <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-        </div>
-
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-
-        <div class="form-group">
-            <input type="submit" value="Login">
-        </div>
-    </form>
-</div>
+    <div>
+        <h2>Login</h2>
+        <p class="msg">{{ msg }}</p>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button>Login</button>
+        </form>
+    </div>
 
 </body>
+
 </html>
