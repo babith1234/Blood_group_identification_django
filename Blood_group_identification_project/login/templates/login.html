@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-image: url('https://motionarray.imgix.net/preview-97259-SsNmfaevYJ-high_0005.jpg'); /* Set your image path here */
+            background-image: url('https://img.freepik.com/premium-photo/rbc-blood-cell-stock-photos-illustrations-3d-renders-art-concept_662214-3677.jpg?w=996'); /* Set your image path here */
             background-size: cover;
             background-position: center;
             display: flex;
@@ -21,7 +21,7 @@
         }
         
         div {
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.5); /* Whitish transparent background */
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -63,7 +63,12 @@
         button:hover {
             background-color: #45a049;
         }
-
+        a{
+            text-decoration:none;
+            color:black;
+            position:relative;
+            top:10px
+        }
         .msg {
             color: red;
             margin-bottom: 10px;
@@ -98,6 +103,7 @@
             {% csrf_token %}
             {{ form.as_p }}
             <button>Login</button>
+            <center> <a href='/register'>Don't have an account? Register</a></center>
         </form>
     </div>
 

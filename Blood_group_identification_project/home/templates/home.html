@@ -14,17 +14,21 @@
             align-items: center;
             height: 100vh;
             background-color: #f4f4f4;
+            background-image :url('https://wallpapercave.com/wp/wp3726968.jpg');
+            background-size: cover;
+            background-position: center;
         }
 
         .container {
             text-align: center;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.5); /* Whitish transparent background */
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 50vw;
-            max-width: 600px; 
+            max-width: 600px;
         }
+        
 
         .buttons {
             display: flex;
@@ -34,9 +38,10 @@
         }
 
         h1 {
-            color: #333;
+            color:white;
             position: absolute;
-            top: 10px;
+            
+            top: 40px;
             width: 100%;
             text-align: center;
         }
@@ -49,7 +54,18 @@
         .btn {
             display: inline-block;
             padding: 10px 20px;
-            background-color: red;
+            background-color: rgba(0, 0, 255, 0.7); 
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .btn1{
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: rgba(255, 0, 0, 0.7);
             color: white;
             border: none;
             border-radius: 5px;
@@ -79,7 +95,7 @@
     <h2>Welcome</h2>
     <div class="buttons">
         <a href="/login" class="btn">Login</a>
-        <a href="/register" class="btn">Register</a>
+        <a href="/register" class="btn1">Register</a>
     </div>
 
 </div>
