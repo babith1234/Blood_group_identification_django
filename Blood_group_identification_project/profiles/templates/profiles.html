@@ -116,10 +116,11 @@
             <button type="submit">Check for Blood Group</button>
         </form>
 
-        {% if img_name %}
+        {% if img_url %}
             <div id="image-preview-container">
                 <h3>Uploaded Image:</h3>
-                <img id="image-preview" src="{{ img_name.url}}" alt="Uploaded_image">
+                <img id="image-preview" src="{{ img_url}}" alt="Uploaded_image">
+              
             </div>
         {% endif %}
     </div>
