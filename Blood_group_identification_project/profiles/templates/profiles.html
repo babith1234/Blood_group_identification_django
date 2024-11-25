@@ -116,14 +116,16 @@
             <button type="submit">Check for Blood Group</button>
         </form>
 
-        {% if img_url %}
+        {% if morph_image %}
             <div id="image-preview-container">
                 <h3>Uploaded Image:</h3>
-                <img id="image-preview" src="{{ img_url}}" alt="Uploaded_image">
-                <h3>Blood type is {{blood_group}}</h3>
-
-              
+                <img src="data:image/png;base64,{{ morph_image }}" alt="Processed Image" style="max-width: 400px;">
+                <h3>Blood type is {{blood_type}}</h3> 
             </div>
+            {% endif %}
+
+            {% if error_message %}
+            <h3>The uploaded image could not be processed. Please ensure it is a valid blood smear image.</h3> 
         {% endif %}
     </div>
 
